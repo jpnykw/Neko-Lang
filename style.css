@@ -55,6 +55,22 @@ textarea {
     margin: 20px;
 }
 
+.__ p {
+    width: 590px;
+    color: #3a3a3a;
+    background: #eaeaea;
+
+    position: relative;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    text-align: left;
+    padding: 5px 0 5px 10px;
+
+    margin-bottom: 0;
+}
+
 .content {
     position: relative;
     z-index: 2;
