@@ -59,7 +59,7 @@ const interpreter = () => {
                             if (code[i] == ']' && c > 0) c --;
     
                             if (code.length < i) {
-                                console.log('[ERROR] Override Memory.');
+                                console.log('[ERROR] beyond scope memory.');
                                 break;
                             }
                         }
@@ -77,7 +77,7 @@ const interpreter = () => {
                             if (code[i] == '[' && c > 0) c --;
     
                             if (0 > i) {
-                                console.log('[ERROR] Override Memory.');
+                                console.log('[ERROR] beyond scope memory.');
                                 break;
                             }
                         }
