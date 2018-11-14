@@ -115,17 +115,27 @@ const interpreter = () => {
             }
         }
     
-        return code_convert;
+        return code_convert || code;
     };
 
     button.addEventListener('click', () => {
         let code = input.value.split('\n').join('');
 
-        if (mode.value >> 0) {
-            output.value = toCustomBF(code);
-        } else {
-            let result = runBF(toNativeBF(code));
-            output.value = result.output.join('');
+        switch (mode.value >> 0) {
+            case 0:
+                output.value = toCustomBF(code);
+                break;
+
+            case 1:
+                output.value = toNativeBF(code);
+                break;
+
+            case 2:
+                if (toNativeBF(code) != code) code = toNativeBF(code);
+                let result = runBF(code);
+
+                output.value = `OUTPUT:\n${result.output.join('')}\n\nMEMORIES:\n${result.memories.join('')}`;
+                break;
         }
 
         if (output.value.includes('undefined')) output.value = '☠ERROR☠';
